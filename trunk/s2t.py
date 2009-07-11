@@ -12,12 +12,13 @@ if (len(sys.argv)==1):
 else:
   dir = sys.argv[1]
 
-for filename in glob.glob(dir):
+filenames = glob.glob(dir)
+for filename in filenames:
   print filename.ljust(50),  convertion(filename)
 
 input = raw_input("Confirm changes? y/n [y]:")
 if (input==''):
   input = 'y'
 if (input=='y'):
-  for filename in os.listdir('.'):
+  for filename in filenames:
     os.rename(filename, convertion(filename))
